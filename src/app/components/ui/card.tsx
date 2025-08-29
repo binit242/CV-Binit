@@ -1,8 +1,13 @@
-// filepath: k:\cv new\src\components\ui\card.tsx
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-export const Card: React.FC<{ className?: string }> = ({ children, className }) => (
-  <div className={`border rounded-lg shadow-sm p-4 bg-white ${className}`}>{children}</div>
+type CardProps = PropsWithChildren<{
+  className?: string;
+}>;
+
+export const Card: React.FC<CardProps> = ({ children, className }) => (
+  <div className={`border rounded-lg shadow-sm p-4 bg-white ${className || ""}`}>
+    {children}
+  </div>
 );
 
 export const CardHeader: React.FC<{ className?: string }> = ({ children, className }) => (
